@@ -1,66 +1,88 @@
+
 #include<iostream>
-#include<vector>
-#include<string>
 using namespace std;
-//.....Book Class.....
-class Book{
+class Book
+{
 public:
-    string title,author;
-    bool borrowed;
-    borrowed=false;
-    title =t;
-    author =a;
+    string title;
+    string  author;;
+    int userID;
+    int copies;
+    void input(){
+    cout<<"enter title"<<title<<endl;
+    cin>>title;
+    cout<<"enter author"<<author<<endl;
+    cin>>author;
+    cout<<"display number of copies"<<endl;
+    cout<<"enter userID"<<userID<<endl;
+    cin>>userID;
     }
-    void display(){
-    cout<<title<<"by"<<author;
-    if(borrowed){
-        cout<<"borrowed"<<endl;
+    void Borrowbooks(){
+    if(copies > 0){
+        cout<<"Borrow"<<endl;
+        copies--;
+
     }else{
-    cout<<"not borrowed"<<endl;
+        cout<<"Cannot Borrow"<<endl;
     }
-    }
-    };
-    class User{
+}
+void returnedbooks(){
+if(copies>0){
+    cout<<"returned"<<endl;
+    copies++;
+}else{
+cout<<"not returned"<<endl;
+}
+}
+};
+class User
+{
 public:
-    string name;
-    User(string n){
-    name = n;
+    int userID;
+    int usercopies=0;
+    void input(){
+    cout<<"userID"<<endl;
+    cin>>userID;
+    cout<<"usercopies"<<endl;
     }
-    void borrowedBook(Book){
-      if(borrowedBook){
-        Book.borrowed=true;
-        cout<<name<<"borrow"<<Book.title<<endl;
-    }else{
-    cout<<Book.title<<"is already borrowed"<<endl;
+    void Borrowedbook(){
+        usercopies++;
+         cout  <<"user"<< userID << " now has " << usercopies << " borrowed book"<<endl;
     }
-       }
-       void returnBook(Book){
-       if(Book.borrowed){
-        Book.borrowed=false;
-        cout<<name<<"raturned"<<Book.title<<endl;
-       }else{
-        cout<<Book.title<<"was not returned"<<endl;
-       }
-       }
-    };
-    class library{
+    void returnedBook() {
+        if (usercopies > 0) {
+            usercopies--;
+            cout << "User " << userID << " returned a book. Now has " << usercopies << " book(s)." << endl;
+        } else {
+            cout << "User " << userID << " has no borrowed books to return." << endl;
+        }
+    }
+};
+class Library
+{
 public:
-    vector<Book>;
-    void addBook(string title,string author){
-    Books.push_back(Book(title,author));
-    }
-    void listBook(){
-    cout<<"library Books"<<endl;
-    }
+      Book book;
+    User user;
+
+    void run() {
+        book.input();
+        user.input();
+
+        int choice;
+        do {
+            cout << "\n--- Library Menu ---\n";
+            cout << "1. Display Book\n";
+            cout << "2. Borrow Book\n";
+            cout << "3. Return Book\n";
+            cout << "4. Exit\n";
+            cout << "Enter choice: ";
+            cin >> choice;}
+
+            while (choice != 4);
+            }
     };
-    int main(){
-    library lib;
-    lib.addBook;
-    user;
-    lib.listBook();
-    user.borrowedBook;
-    lib.listBooks;
-    user.returnedBooks;
-    lib.listBooks;
+    int main() {
+    Library lib;
+    lib.run();
     return 0;
-    }
+}
